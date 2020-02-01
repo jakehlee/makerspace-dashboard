@@ -26,9 +26,11 @@ function start() {
 		var billEventName = respjson['items'][0]['summary'];
 		if (billEventName == "Open 10 AM-6 PM by Bill Miller" && currTime >= startTime && currTime <= endTime) {
 			document.getElementById("billHere").innerHTML = "IN";
+			document.getElementById("billHere").classList.remove('badge-danger');
 			document.getElementById("billHere").classList.add('badge-success');
 		} else {
 			document.getElementById("billHere").innerHTML = "OUT";
+			document.getElementById("billHere").classList.remove('badge-success');
 			document.getElementById("billHere").classList.add('badge-danger');
 		}
 
@@ -58,8 +60,8 @@ gapi.load('client', start);
 
 var calCheck = setInterval(function() {
 	gapi.load('client', start);
-}, 15*60*1000);
+}, 5*60*1000);
 
 setTimeout(function() {
 	location.reload();
-}, 24*60*60*1000);
+}, 6*60*60*1000);
