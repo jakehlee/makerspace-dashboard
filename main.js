@@ -35,7 +35,7 @@ function start() {
 		}
 
 
-		for(i=1; i < respjson['items'].length; i++) {
+		for(i=0; i < respjson['items'].length; i++) {
 			var eventName = respjson['items'][i]['summary'];
 			var eventStart = Date.parse(respjson['items'][i]['start']['dateTime']);
 			var eventEnd = Date.parse(respjson['items'][i]['end']['dateTime']);
