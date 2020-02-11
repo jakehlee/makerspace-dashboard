@@ -39,7 +39,7 @@ function start() {
 			var eventName = respjson['items'][i]['summary'];
 			var eventStart = Date.parse(respjson['items'][i]['start']['dateTime']);
 			var eventEnd = Date.parse(respjson['items'][i]['end']['dateTime']);
-			if(eventEnd - eventStart > (12*60*60*1000)) {
+			if(isNaN(eventEnd - eventStart) || eventEnd - eventStart > (12*60*60*1000)) {
 				// event is longer than 12 hours, skip
 				continue;
 			} else if (now > eventStart && now < eventEnd) {
