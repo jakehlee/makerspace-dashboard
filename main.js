@@ -24,7 +24,7 @@ function start() {
 		endTime.setSeconds('00');
 
 		var billEventName = respjson['items'][0]['summary'];
-		if (billEventName == "Open 10 AM-6 PM by Bill Miller" && currTime >= startTime && currTime <= endTime) {
+		if (billEventName.includes("Bill Miller") && currTime >= startTime && currTime <= endTime) {
 			document.getElementById("billHere").innerHTML = "IN";
 			document.getElementById("billHere").classList.remove('badge-danger');
 			document.getElementById("billHere").classList.add('badge-success');
